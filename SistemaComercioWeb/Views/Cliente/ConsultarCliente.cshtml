@@ -1,0 +1,51 @@
+﻿@model List<CamadaClasses.Cliente>
+
+@{
+    ViewBag.Title = "Consultar clientes";
+}
+
+<h2>Consultar clientes</h2>
+<form action="ConsultarCliente" method="post">
+    <div>
+        <table>
+            <tr>
+                <td>
+                    Nome:
+                </td>
+                <td>
+                    <input name="nomeCliente" type="text" size="100" />
+                </td>
+            </tr>
+        </table>
+
+        <div>
+            <input type="submit" value="Consultar" class="btn btn-default" />
+        </div>
+    </div>
+</form>
+
+<br />
+<br />
+<br />
+
+<div class="form-group">
+    @if (Model != null)
+    {
+        <table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Nome
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "EditarCliente", "Cliente", new { id = item.IdCliente }, null)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Excluir", "ExcluirCliente", "Cliente", new { id = item.IdCliente }, null)
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+</div>

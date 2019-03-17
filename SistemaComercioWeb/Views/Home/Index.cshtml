@@ -1,0 +1,29 @@
+﻿@model List<CamadaClasses.Categoria>
+
+<h2>Lista de categorias</h2>
+<br />
+<br />
+<div>
+    <table>
+        @foreach (var categoria in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(item => categoria.Nome)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(item => categoria.Descricao)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Editar", "EditarCategoria", "Home", new {id = categoria.Idcategoria },null)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Excluir", "ExcluirCategoria", "Home", new { id = categoria.Idcategoria }, null)
+                </td>
+            </tr>
+        }
+    </table>
+</div>

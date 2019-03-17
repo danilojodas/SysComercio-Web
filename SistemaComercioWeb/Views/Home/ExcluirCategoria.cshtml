@@ -1,0 +1,46 @@
+﻿@model CamadaClasses.Categoria
+
+@{
+    ViewBag.Title = "ExcluirCategoria";
+}
+
+<h2>Excluir uma categoria</h2>
+
+<h3>Deseja mesmo excluir a categoria descrita abaixo?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Idcategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Idcategoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm("RespostaExcluirCategoria", "Home", new { id = Model.Idcategoria}, FormMethod.Post)) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
